@@ -52,8 +52,6 @@ var Viewer3DView = widgets.DOMWidgetView.extend({
         this.viewer.scene.background = new THREE.Color(this.model.get('background'));
     },
     render: function() {
-        this.el.style.height = '500px';
-
         this.viewer = new Amphion.Viewer3d();
         this.viewer.setContainer(this.el);
         window.jviewer = this.viewer;

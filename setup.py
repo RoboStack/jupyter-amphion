@@ -46,7 +46,7 @@ cmdclass['js'] = combine_commands(
     install_npm(
         path=ext_path,
         npm=["jlpm"],
-        build_cmd="build",
+        build_cmd="build:labextension",
         source_dir=path.join(ext_path, 'lib')
     ),
     # Representative files that should exist after a successful build

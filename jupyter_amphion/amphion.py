@@ -50,17 +50,26 @@ class ROS(widgets.Widget):
 class Viewer3D(widgets.DOMWidget):
     objects = List(Instance(widgets.Widget)).tag(**sync_widget)
     background = Unicode("#000000").tag(sync=True)
+    def __init__(self, *args, **kwargs):
+        super(Viewer3D, self).__init__(*args, **kwargs)
+        self.layout.height = '500px'
 
 @register
 class Viewer2D(widgets.DOMWidget):
     objects = List(Instance(widgets.Widget)).tag(**sync_widget)
     background = Unicode("#000000").tag(sync=True)
+    def __init__(self, *args, **kwargs):
+        super(Viewer2D, self).__init__(*args, **kwargs)
+        self.layout.height = '500px'
 
 @register
 class TfViewer(widgets.DOMWidget):
     ros = Instance(ROS).tag(**sync_widget)
     objects = List(Instance(widgets.Widget)).tag(**sync_widget)
     background = Unicode("#000000").tag(sync=True)
+    def __init__(self, *args, **kwargs):
+        super(TfViewer, self).__init__(*args, **kwargs)
+        self.layout.height = '500px'
 
 @register_noview
 class ArrowOptions(widgets.Widget):
