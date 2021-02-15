@@ -1,12 +1,12 @@
 {
-  "name": "jupyter-amphion",
+  "name": "@robostack/jupyter-amphion",
   "version": "0.1.0",
   "description": "Jupyter Widget for Amphion",
-  "author": "rapyuta-robotics",
+  "author": "robostack",
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rapyuta-robotics/jupyter-amphion.git"
+    "url": "https://github.com/robostack/jupyter-amphion.git"
   },
   "keywords": [
     "jupyter",
@@ -23,37 +23,41 @@
     "clean": "rimraf dist/",
     "prepublish": "webpack",
     "build": "webpack",
+    "build:labextension": "jlpm run build && jupyter labextension build .",
     "watch": "webpack --watch --env=development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "@jupyterlab/builder": "^3.0.2",
     "@babel/core": "^7.5.4",
     "@babel/preset-env": "^7.5.4",
     "babel-loader": "^8.0.6",
-    "eslint": "^6.0.1",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint": "^7.20.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-restricted-globals": "^0.2.0",
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^5.1.0",
     "object.assign": "^4.1.0",
     "object.entries": "^1.1.0",
-    "rimraf": "^2.6.1",
-    "rollup": "^1.16.7",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.39.0",
     "rollup-plugin-local-resolve": "^1.0.7",
-    "webpack": "^4.39.1",
-    "webpack-cli": "^3.3.9"
+    "webpack": "^5",
+    "webpack-cli": "^4"
   },
   "dependencies": {
     "@babel/runtime": "^7.7.2",
-    "@jupyter-widgets/base": "^1.0.0",
-    "amphion": "^0.1.22",
-    "lodash": "^4.17.4",
-    "roslib": "^1.0.1",
-    "three": "^0.110.0"
+    "@jupyter-widgets/base": "^2.0.1 || ^3 || ^4.0.0",
+    "@robostack/amphion": "^0.1.25"
   },
   "jupyterlab": {
-    "extension": "lib/labplugin"
+    "extension": "lib/labplugin",
+    "outputDir": "../jupyter_amphion/labextension",
+    "webpackConfig": "./webpack.config-jlab.js"
+  },
+  "resolutions": {
+    "@juggle/resize-observer": "^3.2"
   }
 }

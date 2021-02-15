@@ -1,12 +1,12 @@
 var widgets = require('@jupyter-widgets/base');
 var _ = require('lodash');
 var ROSLIB = require('roslib');
-var Amphion = require('amphion');
+var Amphion = require('@robostack/amphion');
 var THREE = require('three');
 var widget_defaults = widgets.WidgetModel.prototype.defaults;
 var domwidget_defaults = widgets.DOMWidgetModel.prototype.defaults;
 
-var defaults = require('../../jupyter_amphion/amphion.py')
+var defaults = require('./defaults.js')
 
 var default_serializers = function(names) {
     names = names || ['ros']

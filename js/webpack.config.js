@@ -1,6 +1,10 @@
 var path = require('path');
 var version = require('./package.json').version;
 
+
+const STATIC_PATH = path.resolve(__dirname, '../jupyter_amphion/static');
+const DIST_PATH = path.resolve(__dirname, 'dist');
+
 // Custom webpack rules are generally the same for all webpack bundles, hence
 // stored in a separate local variable.
 var rules = [
@@ -35,10 +39,11 @@ module.exports = [
         entry: './lib/extension.js',
         output: {
             filename: 'extension.js',
-            path: path.resolve(__dirname, '..', 'jupyter_amphion', 'static'),
+            path: STATIC_PATH,
             libraryTarget: 'amd'
         },
-        resolveLoader: local_loaders
+        resolveLoader: local_loaders,
+        experiments: { asyncWebAssembly: true }
     },
     {// Bundle for the notebook containing the custom widget views and models
      //
@@ -49,7 +54,7 @@ module.exports = [
         entry: './lib/index.js',
         output: {
             filename: 'index.js',
-            path: path.resolve(__dirname, '..', 'jupyter_amphion', 'static'),
+            path: STATIC_PATH,
             libraryTarget: 'amd'
         },
         devtool: 'source-map',
@@ -57,7 +62,8 @@ module.exports = [
             rules: rules
         },
         externals: ['@jupyter-widgets/base'],
-        resolveLoader: local_loaders
+        resolveLoader: local_loaders,
+        experiments: { asyncWebAssembly: true }
     },
     {// Embeddable jupyter-amphion bundle
      //
@@ -76,7 +82,7 @@ module.exports = [
         entry: './lib/embed.js',
         output: {
             filename: 'index.js',
-            path: path.resolve(__dirname, 'dist'),
+            path: DIST_PATH,
             libraryTarget: 'amd',
             publicPath: 'https://unpkg.com/jupyter_amphion@' + version + '/dist/'
         },
@@ -85,6 +91,7 @@ module.exports = [
             rules: rules
         },
         externals: ['@jupyter-widgets/base'],
-        resolveLoader: local_loaders
+        resolveLoader: local_loaders,
+        experiments: { asyncWebAssembly: true }
     },
 ];
