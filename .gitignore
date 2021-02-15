@@ -4,7 +4,7 @@ dist/
 build/
 *.py[cod]
 node_modules/
-
+jupyter_amphion/labextension
 # Compiled javascript
 jupyter_amphion/static/
 
