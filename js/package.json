@@ -1,6 +1,6 @@
 {
   "name": "@robostack/jupyter-amphion",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Jupyter Widget for Amphion",
   "author": "robostack",
   "main": "lib/index.js",

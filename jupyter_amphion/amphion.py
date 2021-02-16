@@ -2,6 +2,12 @@ import ipywidgets as widgets
 from traitlets import *
 import enum
 
+try:
+    from _version import version_info
+except:
+    from ._version import version_info
+
+js_version = '^' + '.'.join([str(x) for x in version_info[:3]])
 
 
 def _quick_widget(package_name, version, has_view=True):
@@ -36,8 +42,8 @@ def _quick_widget(package_name, version, has_view=True):
     return quick_widget_decorator
 
 
-register = _quick_widget('jupyter_amphion', '^0.1.0')
-register_noview = _quick_widget('jupyter_amphion', '^0.1.0', False)
+register = _quick_widget('jupyter_amphion', js_version)
+register_noview = _quick_widget('jupyter_amphion', js_version, False)
 sync_widget = {'sync': True}
 sync_widget.update(widgets.widget_serialization)
 
@@ -302,7 +308,7 @@ var {class_name}Defaults = {json_defaults}
 def js_extract():
     import sys, inspect, json
     clsmembers = inspect.getmembers(sys.modules[__name__], inspect.isclass)
-    # print(clsmembers)
+
     def modulify(d, suffix=''):
         js = {key + suffix: key + suffix for key in d}
         s = "{\n"
@@ -318,11 +324,20 @@ def js_extract():
                 for_export[cls_name] = text
             except:
                 pass
-
+    res = ""
     for key in for_export:
-        print(for_export[key])
+        res += for_export[key] + "\n"
 
     export_template = """
 module.exports = {exports_json}
     """
-    print(export_template.format(exports_json=modulify(for_export, 'Defaults')))
+    return res + export_template.format(exports_json=modulify(for_export, 'Defaults'))
+
+
+if __name__ == "__main__":
+    import os
+    filedir = os.path.dirname(os.path.realpath(__file__))
+
+    defaults_js = js_extract()
+    with open(os.path.join(filedir, "../js/lib/defaults.js"), "w") as fo:
+        fo.write(defaults_js)

@@ -9,7 +9,6 @@ const DIST_PATH = path.resolve(__dirname, 'dist');
 // stored in a separate local variable.
 var rules = [
     { test: /\.css$/, use: ['style-loader', 'css-loader']},
-    { test: /\.py$/, use: ['pyparse.js']},
     {
         test: /\.js$/,
         exclude: /node_modules\/.*/,
@@ -19,13 +18,6 @@ var rules = [
         },
     },
 ]
-
-var local_loaders = {
-    modules: [
-        'node_modules',
-        path.resolve(__dirname, 'loaders')
-    ]
-}
 
 module.exports = [
     {// Notebook extension
@@ -42,7 +34,6 @@ module.exports = [
             path: STATIC_PATH,
             libraryTarget: 'amd'
         },
-        resolveLoader: local_loaders,
         experiments: { asyncWebAssembly: true }
     },
     {// Bundle for the notebook containing the custom widget views and models
@@ -62,7 +53,6 @@ module.exports = [
             rules: rules
         },
         externals: ['@jupyter-widgets/base'],
-        resolveLoader: local_loaders,
         experiments: { asyncWebAssembly: true }
     },
     {// Embeddable jupyter-amphion bundle
@@ -91,7 +81,6 @@ module.exports = [
             rules: rules
         },
         externals: ['@jupyter-widgets/base'],
-        resolveLoader: local_loaders,
         experiments: { asyncWebAssembly: true }
     },
 ];
