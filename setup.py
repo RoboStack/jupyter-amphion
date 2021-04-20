@@ -37,7 +37,7 @@ cmdclass = create_cmdclass(
     },
     data_files_spec = [
         ('share/jupyter/nbextensions/' + nb_ext_name, nb_path, '**'),
-        ('etc/jupyter/nbconfig/notebook.d', name, 'jupyter-amphion.json'),
+        ('etc/jupyter/nbconfig/notebook.d', ".", 'jupyter-amphion.json'),
         ("share/jupyter/labextensions/" + ext_name, lab_path, "**"),
     ]
 )
@@ -72,8 +72,6 @@ setup_args = {
     'include_package_data': True,
     'install_requires': [
         'ipywidgets>=7.0.0',
-        'bqplot',
-        'numpy',
         'rospkg'
     ],
     'packages': find_packages(),
