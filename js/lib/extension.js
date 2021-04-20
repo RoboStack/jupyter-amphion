@@ -5,7 +5,7 @@
 // Some static assets may be required by the custom widget javascript. The base
 // url for the notebook is not known at build time and is therefore computed
 // dynamically.
-__webpack_public_path__ = document.querySelector('body').getAttribute('data-base-url') + 'nbextensions/jupyter_amphion';
+__webpack_public_path__ = document.querySelector('body').getAttribute('data-base-url') + 'nbextensions/@robostack/jupyter-amphion';
 
 
 // Configure requirejs
@@ -13,7 +13,7 @@ if (window.require) {
     window.require.config({
         map: {
             "*" : {
-                "jupyter_amphion": "nbextensions/jupyter-amphion/index",
+                "@robostack/jupyter-amphion": "nbextensions/@robostack/jupyter-amphion/index",
             }
         }
     });

@@ -10,7 +10,7 @@ from setuptools import setup, find_packages
 
 # The name of the project
 name = 'jupyter_amphion'
-nb_ext_name = 'jupyter-amphion'
+nb_ext_name = '@robostack/jupyter-amphion'
 ext_name = '@robostack/jupyter-amphion'
 
 HERE = path.dirname(path.abspath(__file__))
@@ -24,14 +24,14 @@ version = get_version(path.join(name, '_version.py'))
 
 # Extensions' path
 module_path = path.join(HERE, name)
-nb_path = path.join(HERE, name, 'static')
+nb_path = path.join(HERE, name, 'nbextension')
 lab_path = path.join(HERE, name, 'labextension')
 
 cmdclass = create_cmdclass(
     'js',
     package_data_spec = {
         name: [
-            'static/*',
+            'nbextension/*',
             'labextension/*'
         ]
     },

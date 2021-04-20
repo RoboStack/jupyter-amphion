@@ -1,6 +1,6 @@
 
 var ArrowOptionsModelDefaults =     {
-        _model_module: "jupyter_amphion",
+        _model_module: "@robostack/jupyter-amphion",
         _model_module_version: "^0.2.2",
         _model_name: "ArrowOptionsModel",
         head_length: 0.3,
@@ -12,7 +12,7 @@ var ArrowOptionsModelDefaults =     {
     
 
 var AxesOptionsModelDefaults =     {
-        _model_module: "jupyter_amphion",
+        _model_module: "@robostack/jupyter-amphion",
         _model_module_version: "^0.2.2",
         _model_name: "AxesOptionsModel",
         axes_length: 1.0,
@@ -22,7 +22,7 @@ var AxesOptionsModelDefaults =     {
     
 
 var FlatArrowOptionsModelDefaults =     {
-        _model_module: "jupyter_amphion",
+        _model_module: "@robostack/jupyter-amphion",
         _model_module_version: "^0.2.2",
         _model_name: "FlatArrowOptionsModel",
         arrow_length: 0.3,
@@ -31,10 +31,10 @@ var FlatArrowOptionsModelDefaults =     {
     
 
 var GridModelDefaults =     {
-        _model_module: "jupyter_amphion",
+        _model_module: "@robostack/jupyter-amphion",
         _model_module_version: "^0.2.2",
         _model_name: "GridModel",
-        _view_module: "jupyter_amphion",
+        _view_module: "@robostack/jupyter-amphion",
         _view_module_version: "^0.2.2",
         _view_name: "GridView",
         cell_size: 0.5,
@@ -45,10 +45,10 @@ var GridModelDefaults =     {
     
 
 var ImageModelDefaults =     {
-        _model_module: "jupyter_amphion",
+        _model_module: "@robostack/jupyter-amphion",
         _model_module_version: "^0.2.2",
         _model_name: "ImageModel",
-        _view_module: "jupyter_amphion",
+        _view_module: "@robostack/jupyter-amphion",
         _view_module_version: "^0.2.2",
         _view_name: "ImageView",
         queue_size: 1,
@@ -59,10 +59,10 @@ var ImageModelDefaults =     {
     
 
 var LaserScanModelDefaults =     {
-        _model_module: "jupyter_amphion",
+        _model_module: "@robostack/jupyter-amphion",
         _model_module_version: "^0.2.2",
         _model_name: "LaserScanModel",
-        _view_module: "jupyter_amphion",
+        _view_module: "@robostack/jupyter-amphion",
         _view_module_version: "^0.2.2",
         _view_name: "LaserScanView",
         alpha: 1.0,
@@ -80,10 +80,10 @@ var LaserScanModelDefaults =     {
     
 
 var MapModelDefaults =     {
-        _model_module: "jupyter_amphion",
+        _model_module: "@robostack/jupyter-amphion",
         _model_module_version: "^0.2.2",
         _model_name: "MapModel",
-        _view_module: "jupyter_amphion",
+        _view_module: "@robostack/jupyter-amphion",
         _view_module_version: "^0.2.2",
         _view_name: "MapView",
         alpha: 1.0,
@@ -96,10 +96,10 @@ var MapModelDefaults =     {
     
 
 var MarkerModelDefaults =     {
-        _model_module: "jupyter_amphion",
+        _model_module: "@robostack/jupyter-amphion",
         _model_module_version: "^0.2.2",
         _model_name: "MarkerModel",
-        _view_module: "jupyter_amphion",
+        _view_module: "@robostack/jupyter-amphion",
         _view_module_version: "^0.2.2",
         _view_name: "MarkerView",
         namespaces: {},
@@ -111,10 +111,10 @@ var MarkerModelDefaults =     {
     
 
 var MarkerArrayModelDefaults =     {
-        _model_module: "jupyter_amphion",
+        _model_module: "@robostack/jupyter-amphion",
         _model_module_version: "^0.2.2",
         _model_name: "MarkerArrayModel",
-        _view_module: "jupyter_amphion",
+        _view_module: "@robostack/jupyter-amphion",
         _view_module_version: "^0.2.2",
         _view_name: "MarkerArrayView",
         namespaces: {},
@@ -127,10 +127,10 @@ var MarkerArrayModelDefaults =     {
     
 
 var OdometryModelDefaults =     {
-        _model_module: "jupyter_amphion",
+        _model_module: "@robostack/jupyter-amphion",
         _model_module_version: "^0.2.2",
         _model_name: "OdometryModel",
-        _view_module: "jupyter_amphion",
+        _view_module: "@robostack/jupyter-amphion",
         _view_module_version: "^0.2.2",
         _view_name: "OdometryView",
         alpha: 1.0,
@@ -149,10 +149,10 @@ var OdometryModelDefaults =     {
     
 
 var PathModelDefaults =     {
-        _model_module: "jupyter_amphion",
+        _model_module: "@robostack/jupyter-amphion",
         _model_module_version: "^0.2.2",
         _model_name: "PathModel",
-        _view_module: "jupyter_amphion",
+        _view_module: "@robostack/jupyter-amphion",
         _view_module_version: "^0.2.2",
         _view_name: "PathView",
         alpha: 1.0,
@@ -164,10 +164,10 @@ var PathModelDefaults =     {
     
 
 var PointCloudModelDefaults =     {
-        _model_module: "jupyter_amphion",
+        _model_module: "@robostack/jupyter-amphion",
         _model_module_version: "^0.2.2",
         _model_name: "PointCloudModel",
-        _view_module: "jupyter_amphion",
+        _view_module: "@robostack/jupyter-amphion",
         _view_module_version: "^0.2.2",
         _view_name: "PointCloudView",
         message_type: "sensor_msgs/PointCloud2",
@@ -178,10 +178,10 @@ var PointCloudModelDefaults =     {
     
 
 var PolygonModelDefaults =     {
-        _model_module: "jupyter_amphion",
+        _model_module: "@robostack/jupyter-amphion",
         _model_module_version: "^0.2.2",
         _model_name: "PolygonModel",
-        _view_module: "jupyter_amphion",
+        _view_module: "@robostack/jupyter-amphion",
         _view_module_version: "^0.2.2",
         _view_name: "PolygonView",
         ros: undefined,
@@ -191,10 +191,10 @@ var PolygonModelDefaults =     {
     
 
 var PoseModelDefaults =     {
-        _model_module: "jupyter_amphion",
+        _model_module: "@robostack/jupyter-amphion",
         _model_module_version: "^0.2.2",
         _model_name: "PoseModel",
-        _view_module: "jupyter_amphion",
+        _view_module: "@robostack/jupyter-amphion",
         _view_module_version: "^0.2.2",
         _view_name: "PoseView",
         alpha: 1.0,
@@ -209,10 +209,10 @@ var PoseModelDefaults =     {
     
 
 var PoseArrayModelDefaults =     {
-        _model_module: "jupyter_amphion",
+        _model_module: "@robostack/jupyter-amphion",
         _model_module_version: "^0.2.2",
         _model_name: "PoseArrayModel",
-        _view_module: "jupyter_amphion",
+        _view_module: "@robostack/jupyter-amphion",
         _view_module_version: "^0.2.2",
         _view_name: "PoseArrayView",
         alpha: 1.0,
@@ -228,7 +228,7 @@ var PoseArrayModelDefaults =     {
     
 
 var ROSModelDefaults =     {
-        _model_module: "jupyter_amphion",
+        _model_module: "@robostack/jupyter-amphion",
         _model_module_version: "^0.2.2",
         _model_name: "ROSModel",
         url: "ws://10.91.1.111:9090",
@@ -237,10 +237,10 @@ var ROSModelDefaults =     {
     
 
 var RobotModelDefaults =     {
-        _model_module: "jupyter_amphion",
+        _model_module: "@robostack/jupyter-amphion",
         _model_module_version: "^0.2.2",
         _model_name: "RobotModel",
-        _view_module: "jupyter_amphion",
+        _view_module: "@robostack/jupyter-amphion",
         _view_module_version: "^0.2.2",
         _view_name: "RobotView",
         description: "robot_description",
@@ -251,10 +251,10 @@ var RobotModelDefaults =     {
     
 
 var TfViewerModelDefaults =     {
-        _model_module: "jupyter_amphion",
+        _model_module: "@robostack/jupyter-amphion",
         _model_module_version: "^0.2.2",
         _model_name: "TfViewerModel",
-        _view_module: "jupyter_amphion",
+        _view_module: "@robostack/jupyter-amphion",
         _view_module_version: "^0.2.2",
         _view_name: "TfViewerView",
         background: "#000000",
@@ -265,10 +265,10 @@ var TfViewerModelDefaults =     {
     
 
 var Viewer2DModelDefaults =     {
-        _model_module: "jupyter_amphion",
+        _model_module: "@robostack/jupyter-amphion",
         _model_module_version: "^0.2.2",
         _model_name: "Viewer2DModel",
-        _view_module: "jupyter_amphion",
+        _view_module: "@robostack/jupyter-amphion",
         _view_module_version: "^0.2.2",
         _view_name: "Viewer2DView",
         background: "#000000",
@@ -278,10 +278,10 @@ var Viewer2DModelDefaults =     {
     
 
 var Viewer3DModelDefaults =     {
-        _model_module: "jupyter_amphion",
+        _model_module: "@robostack/jupyter-amphion",
         _model_module_version: "^0.2.2",
         _model_name: "Viewer3DModel",
-        _view_module: "jupyter_amphion",
+        _view_module: "@robostack/jupyter-amphion",
         _view_module_version: "^0.2.2",
         _view_name: "Viewer3DView",
         background: "#000000",
