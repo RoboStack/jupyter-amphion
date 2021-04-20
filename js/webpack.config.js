@@ -2,7 +2,7 @@ var path = require('path');
 var version = require('./package.json').version;
 
 
-const STATIC_PATH = path.resolve(__dirname, '../jupyter_amphion/static');
+const STATIC_PATH = path.resolve(__dirname, '../jupyter_amphion/nbextension');
 const DIST_PATH = path.resolve(__dirname, 'dist');
 
 // Custom webpack rules are generally the same for all webpack bundles, hence
@@ -32,7 +32,8 @@ module.exports = [
         output: {
             filename: 'extension.js',
             path: STATIC_PATH,
-            libraryTarget: 'amd'
+            libraryTarget: 'amd',
+            publicPath: '' // publicPath is set in extension.js
         },
         experiments: { asyncWebAssembly: true }
     },
@@ -46,7 +47,8 @@ module.exports = [
         output: {
             filename: 'index.js',
             path: STATIC_PATH,
-            libraryTarget: 'amd'
+            libraryTarget: 'amd',
+            publicPath: '',
         },
         devtool: 'source-map',
         module: {
@@ -74,7 +76,7 @@ module.exports = [
             filename: 'index.js',
             path: DIST_PATH,
             libraryTarget: 'amd',
-            publicPath: 'https://unpkg.com/jupyter_amphion@' + version + '/dist/'
+            publicPath: 'https://unpkg.com/@robostack/jupyter-amphion@' + version + '/dist/'
         },
         devtool: 'source-map',
         module: {

@@ -42,8 +42,8 @@ def _quick_widget(package_name, version, has_view=True):
     return quick_widget_decorator
 
 
-register = _quick_widget('jupyter_amphion', js_version)
-register_noview = _quick_widget('jupyter_amphion', js_version, False)
+register = _quick_widget('@robostack/jupyter-amphion', js_version)
+register_noview = _quick_widget('@robostack/jupyter-amphion', js_version, False)
 sync_widget = {'sync': True}
 sync_widget.update(widgets.widget_serialization)
 
