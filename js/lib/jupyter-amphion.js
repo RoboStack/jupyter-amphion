@@ -220,6 +220,14 @@ var RobotModel = widgets.WidgetModel.extend({
     defaults: _.extend(widgets.WidgetModel.prototype.defaults(), defaults.RobotModelDefaults),
 }, default_serializers());
 
+var getDataSource = function(model) {
+    if (model.get("message_type"))
+    {
+        return new Amphion.RosTopicDataSource({ros: model.get('ros').get_connection(), topicName: model.get('topic'), messageType: model.get("message_type")});
+    }
+    return new Amphion.RosTopicDataSource({ros: model.get('ros').get_connection(), topicName: model.get('topic')});
+}
+
 var GridView = widgets.WidgetView.extend({
     initialize: function(parms) {
         GridView.__super__.initialize.apply(this, arguments);
@@ -256,9 +264,9 @@ var ImageView = widgets.WidgetView.extend({
         });
     },
     render: function() {
+        this.dataSource = getDataSource(this.model);
         this.image = new Amphion.Image(
-            this.model.get('ros').get_connection(),
-            this.model.get('topic'),
+            this.dataSource,
             {
                 queueSize: this.model.get('queue_size')
             }
@@ -288,9 +296,9 @@ var MapView = widgets.WidgetView.extend({
         );
     },
     render: function() {
+        this.dataSource = getDataSource(this.model);
         this.map = new Amphion.Map(
-            this.model.get('ros').get_connection(),
-            this.model.get('topic'),
+            this.dataSource,
             {
                 alpha: this.model.get('alpha'),
                 colorScheme: this.model.get('color_scheme'),
@@ -327,9 +335,9 @@ var LaserScanView = widgets.WidgetView.extend({
         );
     },
     render: function() {
+        this.dataSource = getDataSource(this.model);
         this.laserscan = new Amphion.LaserScan(
-            this.model.get('ros').get_connection(),
-            this.model.get('topic'),
+            this.dataSource,
             {
                 selectable: this.model.get('selectable'),
                 style: this.model.get('style'),
@@ -365,9 +373,9 @@ var MarkerView = widgets.WidgetView.extend({
         );
     },
     render: function() {
+        this.dataSource = getDataSource(this.model);
         this.marker = new Amphion.Marker(
-            this.model.get('ros').get_connection(),
-            this.model.get('topic'),
+            this.dataSource,
             {
                 queueSize: this.model.get('queue_size'),
                 namespaces: this.model.get('namespaces')
@@ -402,9 +410,9 @@ var MarkerArrayView = widgets.WidgetView.extend({
         );
     },
     render: function() {
+        this.dataSource = getDataSource(this.model);
         this.markerarray = new Amphion.MarkerArray(
-            this.model.get('ros').get_connection(),
-            this.model.get('topic'),
+            this.dataSource,
             {
                 queueSize: this.model.get('queue_size'),
                 namespaces: this.model.get('namespaces'),
@@ -450,9 +458,9 @@ var OdometryView = widgets.WidgetView.extend({
         );
     },
     render: function() {
+        this.dataSource = getDataSource(this.model);
         this.odometry = new Amphion.Odometry(
-            this.model.get('ros').get_connection(),
-            this.model.get('topic'),
+            this.dataSource,
             {
                 type: this.model.get('type_attr'),
                 color: this.model.get('color'),
@@ -470,7 +478,7 @@ var OdometryView = widgets.WidgetView.extend({
             }
         );
         this.update();
-        this.odometry.subscribe();
+        // this.odometry.subscribe();
         this.viewer.addVisualization(this.odometry);
     },
     trigger_rerender: function() {
@@ -498,9 +506,9 @@ var PathView = widgets.WidgetView.extend({
         );
     },
     render: function() {
+        this.dataSource = getDataSource(this.model);
         this.path = new Amphion.Path(
-            this.model.get('ros').get_connection(),
-            this.model.get('topic'),
+            this.dataSource,
             {
                 color: this.model.get('color'),
                 alpha: this.model.get('alpha')
@@ -524,10 +532,9 @@ var PointCloudView = widgets.WidgetView.extend({
     update: function() {
     },
     render: function() {
-        this.pointcloud = new Amphion.PointCloud(
-            this.model.get('ros').get_connection(),
-            this.model.get('topic'),
-            this.model.get('message_type')
+        this.dataSource = getDataSource(this.model);
+        this.pointcloud = new Apmhion.PointCloud(
+            this.dataSource
         );
         this.update();
         this.pointcloud.subscribe();
@@ -547,9 +554,9 @@ var PolygonView = widgets.WidgetView.extend({
     update: function() {
     },
     render: function() {
+        this.dataSource = getDataSource(this.model);
         this.polygon = new Amphion.Polygon(
-            this.model.get('ros').get_connection(),
-            this.model.get('topic')
+            this.dataSource
         );
         this.update();
         this.polygon.subscribe();
@@ -582,9 +589,9 @@ var PoseView = widgets.WidgetView.extend({
         )
     },
     render: function() {
+        this.dataSource = getDataSource(this.model);
         this.pose = new Amphion.Pose(
-            this.model.get('ros').get_connection(),
-            this.model.get('topic'),
+            this.dataSource,
             {
                 color: this.model.get('color'),
                 alpha: this.model.get('alpha'),
@@ -633,9 +640,9 @@ var PoseArrayView = widgets.WidgetView.extend({
         )
     },
     render: function() {
+        this.dataSource = getDataSource(this.model);
         this.posearray = new Amphion.PoseArray(
-            this.model.get('ros').get_connection(),
-            this.model.get('topic'),
+            this.dataSource,
             {
                 color: this.model.get('color'),
                 alpha: this.model.get('alpha'),
