@@ -478,7 +478,7 @@ var OdometryView = widgets.WidgetView.extend({
             }
         );
         this.update();
-        // this.odometry.subscribe();
+        this.odometry.subscribe();
         this.viewer.addVisualization(this.odometry);
     },
     trigger_rerender: function() {
